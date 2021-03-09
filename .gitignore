@@ -4,5 +4,6 @@
 out
 gen
 
-/.phpunit.result.cache
 /vendor/
+/.phpunit.cache/
+/test.yml

@@ -10,6 +10,9 @@ use rame0\Generators\YandexMarket\YML;
 
 class Test extends TestCase
 {
+    /**
+     * @covers \rame0\Generators\YandexMarket\YML
+     */
     public function test_base(): void
     {
         $expected_xml = '<?xml version="1.0" encoding="UTF-8"?>
@@ -24,6 +27,10 @@ class Test extends TestCase
         $this->assertEquals($expected_xml, $actual_xml);
     }
 
+    /**
+     * @covers \rame0\Generators\YandexMarket\YML
+     * @covers \rame0\Generators\YandexMarket\Currency
+     */
     public function test_currencies()
     {
         $expected_xml = '<?xml version="1.0" encoding="UTF-8"?>
@@ -41,6 +48,10 @@ class Test extends TestCase
         $this->assertEquals($expected_xml, $actual_xml);
     }
 
+    /**
+     * @covers \rame0\Generators\YandexMarket\YML
+     * @covers \rame0\Generators\YandexMarket\Category
+     */
     public function test_categories()
     {
         $expected_xml = '<?xml version="1.0" encoding="UTF-8"?>
@@ -60,6 +71,10 @@ class Test extends TestCase
         $this->assertEquals($expected_xml, $actual_xml);
     }
 
+    /**
+     * @covers \rame0\Generators\YandexMarket\YML
+     * @covers \rame0\Generators\YandexMarket\Offer
+     */
     public function test_simple_offer()
     {
         $expected_xml = '<?xml version="1.0" encoding="UTF-8"?>
@@ -77,6 +92,10 @@ class Test extends TestCase
         $this->assertEquals($expected_xml, $actual_xml);
     }
 
+    /**
+     * @covers \rame0\Generators\YandexMarket\YML
+     * @covers \rame0\Generators\YandexMarket\Offer
+     */
     public function test_file()
     {
         $expected_xml = '<?xml version="1.0" encoding="UTF-8"?>
