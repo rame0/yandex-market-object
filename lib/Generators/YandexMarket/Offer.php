@@ -110,7 +110,7 @@ class Offer extends Item
      */
     public function addParam(string $name, $value, string $unit = NULL)
     {
-        $this->params[$name] = [$value, $unit];
+        $this->params[] = [$name, $value, $unit];
     }
 
     /**
@@ -133,7 +133,7 @@ class Offer extends Item
 
         $this->writeProps($ymlDoc, $this->generalProperties);
         $this->writeProps($ymlDoc, $this->privateProperties);
-        $this->writeParams($ymlDoc, $this->params);
+        $this->writeParams($ymlDoc);
 
         $ymlDoc->endElement();
 
@@ -163,19 +163,18 @@ class Offer extends Item
 
     /**
      * @param YML $ymlDoc
-     * @param array $params
      */
-    protected function writeParams(YML $ymlDoc, array $params)
+    protected function writeParams(YML $ymlDoc)
     {
-        if (is_array($params) && count($params) > 0) {
-            foreach ($params as $key => $value) {
+        if (is_array($this->params) && count($this->params) > 0) {
+            foreach ($this->params as $value) {
                 if (strlen(trim($value[0])) > 0) {
                     $ymlDoc->startElement('param');
-                    $ymlDoc->writeAttribute('name', $key);
+                    $ymlDoc->writeAttribute('name', $value[0]);
                     if (!empty($value[1])) {
-                        $ymlDoc->writeAttribute('unit', $value[1]);
+                        $ymlDoc->writeAttribute('unit', $value[2]);
                     }
-                    $ymlDoc->text($ymlDoc->replaceSpecialChars($value[0]));
+                    $ymlDoc->text($ymlDoc->replaceSpecialChars($value[1]));
                     $ymlDoc->endElement();
                 }
             }
