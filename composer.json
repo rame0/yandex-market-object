@@ -2,7 +2,7 @@
   "name": "rame0/yandex-market-object",
   "type": "library",
   "description": "Yandex Market YML generator",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "authors": [
     {
       "name": "rame0",
