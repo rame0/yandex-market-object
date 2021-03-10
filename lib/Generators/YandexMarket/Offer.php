@@ -171,7 +171,7 @@ class Offer extends Item
                 if (strlen(trim($value[0])) > 0) {
                     $ymlDoc->startElement('param');
                     $ymlDoc->writeAttribute('name', $value[0]);
-                    if (!empty($value[1])) {
+                    if (!empty($value[2])) {
                         $ymlDoc->writeAttribute('unit', $value[2]);
                     }
                     $ymlDoc->text($ymlDoc->replaceSpecialChars($value[1]));
